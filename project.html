@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ILIA OS | GIGANT-CORE</title>
     <style>
-        /* ======================================================== */
-        /* SECTION 01: GLOBAL THEME REGISTRY (Lines 25-200)         */
-        /* ======================================================== */
+        
         :root {
             --os-primary-bg: #010203;
             --os-secondary-bg: #05070a;
@@ -29,10 +27,7 @@
             --os-win-blur: blur(20px);
             --os-win-opacity: 0.97;
         }
-
-        /* ======================================================== */
-        /* SECTION 02: CORE SYSTEM RESET                            */
-        /* ======================================================== */
+        
         * {
             box-sizing: border-box;
             margin: 0;
@@ -50,9 +45,7 @@
             user-select: none;
         }
 
-        /* ======================================================== */
-        /* SECTION 03: ANIMATED BACKGROUND (NEURAL NET)             */
-        /* ======================================================== */
+
         #neural-background {
             position: fixed;
             top: 0;
@@ -64,9 +57,7 @@
             pointer-events: none;
         }
 
-        /* ======================================================== */
-        /* SECTION 04: PERSISTENT LOGIN GATEWAY                     */
-        /* ======================================================== */
+
         #auth-overlay {
             position: fixed;
             top: 0;
@@ -148,9 +139,6 @@
             box-shadow: var(--os-glow-hard);
         }
 
-        /* ======================================================== */
-        /* SECTION 05: DESKTOP WORKSPACE SCENARIO                   */
-        /* ======================================================== */
         #desktop-workspace {
             position: relative;
             width: 100vw;
@@ -204,9 +192,6 @@
             font-weight: bold;
         }
 
-        /* ======================================================== */
-        /* SECTION 06: MULTI-WINDOW ARCHITECTURE                    */
-        /* ======================================================== */
         .os-window {
             position: absolute;
             background: var(--os-win-opacity);
@@ -259,9 +244,7 @@
             overflow-y: auto;
         }
 
-        /* ======================================================== */
-        /* SECTION 07: KALI TERMINAL SUBSYSTEM                      */
-        /* ======================================================== */
+
         #terminal-container {
             height: 100%;
             display: flex;
@@ -301,9 +284,6 @@
             font-size: 14px;
         }
 
-        /* ======================================================== */
-        /* SECTION 08: ARCADE COMPONENT STYLING                     */
-        /* ======================================================== */
         .arcade-ui {
             display: flex;
             flex-direction: column;
@@ -349,9 +329,7 @@
             background: rgba(255, 215, 0, 0.05);
         }
 
-        /* ======================================================== */
-        /* SECTION 09: TASKBAR GLOBAL INTERFACE                     */
-        /* ======================================================== */
+
         #global-taskbar {
             position: fixed;
             bottom: 0;
@@ -492,13 +470,7 @@
     
 
 <script>
-    /* ======================================================== */
-    /* SECTION 10: CORE LOGIC & PERSISTENCE (Lines 400+)        */
-    /* ======================================================== */
-    
-    // --------------------------------------------------------
-    // SUB-MODULE A: STATE REGISTRY
-    // --------------------------------------------------------
+
     let STATE = {
         user: { name: "Ilia", loc: "Earth", age: 0, xp: 0, lvl: 1 },
         ui: { zIndex: 100, activeWin: null },
@@ -506,9 +478,6 @@
         keys: {}
     };
 
-    // --------------------------------------------------------
-    // SUB-MODULE B: PERSISTENCE ENGINE
-    // --------------------------------------------------------
     function saveProfile() {
         const payload = JSON.stringify(STATE.user);
         localStorage.setItem('ilia_os_v22_data', payload);
@@ -556,9 +525,6 @@
         }, 1000);
     }
 
-    // --------------------------------------------------------
-    // SUB-MODULE C: NEURAL BACKGROUND CANVAS
-    // --------------------------------------------------------
     const canvasB = document.getElementById('neural-background');
     const ctxB = canvasB.getContext('2d');
     canvasB.width = window.innerWidth;
@@ -593,11 +559,7 @@
         });
         requestAnimationFrame(animateBg);
     }
-    animateBg();
 
-    // --------------------------------------------------------
-    // SUB-MODULE D: WINDOW CONTROLLER
-    // --------------------------------------------------------
     function toggleWindow(id) {
         const w = document.getElementById(id);
         if (w.style.display === 'flex') {
@@ -619,9 +581,7 @@
         document.onmouseup = () => { document.onmousemove = null; };
     }
 
-    // --------------------------------------------------------
-    // SUB-MODULE E: ARCADE GAME SYSTEM
-    // --------------------------------------------------------
+
     const gC = document.getElementById('game-viewport');
     const gx = gC.getContext('2d');
     let pObj = { x: 440, y: 380, w: 50, h: 70 };
@@ -691,7 +651,6 @@
             });
         }
 
-        // DEFENDER LOGIC
         if (STATE.game.mode === 'def') {
             let pS = 12;
             if ((STATE.keys.ArrowLeft || STATE.keys.KeyA) && pObj.x > 0) pObj.x -= pS;
@@ -738,9 +697,6 @@
     }
     runArcade();
 
-    // --------------------------------------------------------
-    // SUB-MODULE F: TERMINAL LOGIC
-    // --------------------------------------------------------
     const tIn = document.getElementById('terminal-input-field');
     const tOut = document.getElementById('terminal-log-area');
 
@@ -770,9 +726,7 @@
         }
     });
 
-    // --------------------------------------------------------
-    // SUB-MODULE G: UTILS
-    // --------------------------------------------------------
+
     function factoryReset() {
         if (confirm("DANGER: This will erase all XP and data. Continue?")) {
             localStorage.clear();
@@ -790,10 +744,7 @@
         }
     };
 
-    /* EXPANSION PADDING
-       In a production environment, this would link to hundreds 
-       of external libraries for node mapping and physics.
-    */
+
 
 </script>
 </body>
